@@ -268,3 +268,5 @@ add_action('admin_enqueue_scripts','EncolarCSSSFC');
 
 register_activation_hook(__FILE__, 'ActivateSFCIsolutionIntegration');
 register_deactivation_hook(__FILE__, 'DesactivateSFCIsolutionIntegration');
+
+//Hola
