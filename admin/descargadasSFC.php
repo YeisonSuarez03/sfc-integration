@@ -523,7 +523,7 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 				</div>
 				<div class="d-flex w-25 justify-content-center align-items-center" style="gap: 0 10px;">
 					<button type="reset" class="btn btn-danger">Cancelar</button>
-					<button type="submit" class="btn btn-success">Guardar</button>
+					<button type="button"  class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#ModalGuardar">Guardar</button>
 				</div>
 
 			</div>
@@ -533,6 +533,26 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 
 </div>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModalGuardar" tabindex="-1" aria-labelledby="ModalExplaGuardar" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalExplaGuardar">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
 //FUNCIONALIDAD PARA SELECT DE DEPARTAMENTOS:
 window.addEventListener("DOMContentLoaded", () => {
