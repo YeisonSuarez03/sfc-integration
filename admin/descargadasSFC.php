@@ -540,15 +540,15 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="ModalExplaGuardar">Modal title</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <label>Observación</label>
+		<div style="border: 1px solid black; height: 200px;"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Save changes</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success">Guardar</button>
       </div>
     </div>
   </div>
