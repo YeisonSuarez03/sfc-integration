@@ -37,7 +37,7 @@
  require plugin_dir_path(__FILE__) . "catalogs/procesoCenters.php";
  //FUNCION PARA OBTENER TABLAS DE CATALOGO
  require plugin_dir_path(__FILE__) . "catalogs/catalogTables.php";
-
+//DEV
  //FUNCION PARA VERIFICAR QUE NO HAYA DATOS EN TABLA PARA INSERTAR CATALOGOS
 function verifyDataTable($tableName){
     global $wpdb;
