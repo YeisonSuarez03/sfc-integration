@@ -45,7 +45,7 @@ function verifyDataTable($tableName){
     count(1) as cantidad
     FROM {$tableName}
     ";
-    $tableResult = $wpdb->get_results($tableQuery, ARRAY_A);
+    $tableResult = $wpdb->get_results( $tableQuery, ARRAY_A );
     return $tableResult[0]["cantidad"] > 0;
 }
 

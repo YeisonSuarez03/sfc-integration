@@ -125,8 +125,11 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 								<option value="">Seleccione: </option>
 								<?php
 								foreach ($countriesCatalog as $key => $value) {
+									$isSelected = $value["isoCode"] == 170 ? "selected" : "";
 									?>
-									<option value="<?php echo $value["isoCode"]; ?>"><?php echo $value["countryName"]; ?></option>
+									<option value="<?php echo $value["isoCode"]; ?>" <?php echo $isSelected;?> >
+										<?php echo $value["countryName"]; ?>
+									</option>
 									<?php
 								}
 								?>
