@@ -32,6 +32,11 @@ function getCatalogTables(){
     $procesoCentersTableName = "{$wpdb->prefix}sfcwp_procesos_centers";
     $centerResponsiblesTableName = "{$wpdb->prefix}sfcwp_centers_responsibles";
 
+    //pqrs table
+    $pqrsTable = "{$wpdb->prefix}sfcwp_pqrs";
+    //pqrs table
+    $pqrsAnexosTable = "{$wpdb->prefix}sfcwp_pqrs_anexos";
+
     return array(
         "countries" => array(
           "name" => $countriesTableName,
@@ -224,6 +229,51 @@ function getCatalogTables(){
           centerCode INT NOT NULL,
           responsibleCode INT NOT NULL,
           CONSTRAINT sfcwp_centerResponsibles_PK PRIMARY KEY (id) "
+        ),
+        "pqrs" => array(
+          "name" => $pqrsTable,
+          "fields" => "id INT NOT NULL AUTO_INCREMENT,
+          tipo_entidad INT NOT NULL,
+          entidad_cod INT NOT NULL,
+          fecha_creacion TIMESTAMP NOT NULL,
+          codigo_queja VARCHAR(20) NOT NULL,
+          codigo_pais INT NOT NULL,
+          departamento_cod INT NOT NULL,
+          municipio_cod INT NOT NULL,
+          nombres VARCHAR(100) NOT NULL,
+          tipo_id_CF INT NOT NULL,
+          numero_id_CF VARCHAR(20) NOT NULL,
+          tipo_persona INT NOT NULL,
+          sexo INT NOT NULL,
+          lgbtiq INT NOT NULL,
+          canal_cod INT NOT NULL,
+          condicion_especial INT NOT NULL,
+          producto_cod INT NOT NULL,
+          producto_nombre VARCHAR(100) NOT NULL,
+          macro_motivo_cod INT NOT NULL,
+          texto_queja VARCHAR(1000) NOT NULL,
+          anexo_queja TINYINT(1) NOT NULL,
+          tutela INT NULL,
+          ente_control INT NULL,
+          escalamiento_DCF INT NULL,
+          replica INT NULL,
+          argumento_replica VARCHAR(1000) NULL,
+          desistimiento_queja INT NULL,
+          queja_expres INT NULL,
+          status_queja_sfc INT NULL,
+          status_intern_code INT NULL,
+          status_intern_name VARCHAR(30) NULL,
+          CONSTRAINT sfcwp_pqrs_PK PRIMARY KEY (id)"
+        ),
+        "anexos" => array(
+          "name" => $pqrsAnexosTable,
+          "fields" => "id INT NOT NULL AUTO_INCREMENT,
+          anexoId INT NOT NULL,
+          file VARCHAR(1000) NOT NULL,
+          type VARCHAR(5) NOT NULL,
+          codigo_queja VARCHAR(20) NOT NULL,
+          state INT NOT NULL,
+          CONSTRAINT sfcwp_pqrs_anexos_PK PRIMARY KEY (id)"
         ),
         );
 }
