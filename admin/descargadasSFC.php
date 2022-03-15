@@ -141,8 +141,11 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 								<option value="">Seleccione: </option> 
 								<?php
 								foreach ($departmentsCatalog  as $key => $value) {
+									$isSelected = $value["code"] == 5 ? "selected" : "";
 									?>
-									<option value="<?php echo $value["code"]; ?>"><?php echo $value["departmentName"]; ?></option>
+									<option value="<?php echo $value["code"]; ?>"  <?php echo $isSelected;?> >
+									<?php echo $value["departmentName"]; ?>
+								     </option>
 									<?php
 								}
 								?>
@@ -160,8 +163,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 								<option value="">Seleccione: </option>
 								<?php
 								foreach ($persontypeCatalog  as $key => $value) {
+									$isSelected = $value["code"] == 1 ? "selected" : "";
 									?>
-									<option value="<?php echo $value["code"]; ?>"><?php echo $value["personTypeName"]; ?></option>
+									<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?> ><?php echo $value["personTypeName"]; ?></option>
 									<?php
 								}
 								?>
@@ -173,8 +177,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 								<option value="">Seleccione: </option>
 								<?php
 								foreach ($special_conditionsCatalog  as $key => $value) {
+									$isSelected = $value["code"] == 98 ? "selected" : "";
 									?>
-									<option value="<?php echo $value["code"]; ?>"><?php echo $value["conditionName"]; ?></option>
+									<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?> ><?php echo $value["conditionName"]; ?></option>
 									<?php
 								}
 								?>
@@ -195,8 +200,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 								<option value="">Seleccione: </option>
 								<?php
 								foreach ($identificationsCatalog  as $key => $value) {
+									$isSelected = $value["code"] == 1 ? "selected" : "";
 									?>
-									<option value="<?php echo $value["code"]; ?>"><?php echo $value["idName"]; ?></option>
+									<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?>><?php echo $value["idName"]; ?></option>
 									<?php
 								}
 								?>
@@ -242,8 +248,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 								<option value="">Seleccione: </option>
 								<?php
 								foreach ($lgbtCatalog   as $key => $value) {
+									$isSelected = $value["code"] == 2 ? "selected" : "";
 									?>
-									<option value="<?php echo $value["code"]; ?>"><?php echo $value["lgbtName"]; ?></option>
+									<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?>><?php echo $value["lgbtName"]; ?></option>
 									<?php
 								}
 								?>
@@ -262,8 +269,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($canalsCatalog    as $key => $value) {
+											$isSelected = $value["code"] == 14 ? "selected" : "";
 											?>
-											<option value="<?php echo $value["code"]; ?>"><?php echo $value["canalName"]; ?></option>
+											<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?>><?php echo $value["canalName"]; ?></option>
 											<?php
 										}
 										?>
@@ -275,8 +283,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($motivosCatalog   as $key => $value) {
+											$isSelected = $value["code"] == 909 ? "selected" : "";
 											?>
-											<option value="<?php echo $value["code"]; ?>"><?php echo $value["reasonName"]; ?></option>
+											<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected ?> ><?php echo $value["reasonName"]; ?></option>
 											<?php
 										}
 										?>
@@ -313,8 +322,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($productsCatalog  as $key => $value) {
+											$isSelected = $value["code"] == null ? "selected" : "";
 											?>
-											<option value="<?php echo $value["code"]; ?>"><?php echo $value["productName"]; ?></option>
+											<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?>><?php echo $value["productName"]; ?></option>
 											<?php
 										}
 										?>
@@ -326,8 +336,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($digital_productCatalog  as $key => $value) {
+											$isSelected = $value["code"] == 2 ? "selected" : "";
 											?>
-											<option value="<?php echo $value["code"]; ?>"><?php echo $value["stateName"]; ?></option>
+											<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?> ><?php echo $value["stateName"]; ?></option>
 											<?php
 										}
 										?>
@@ -342,8 +353,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($points_receptionCatalog    as $key => $value) {
+											$isSelected = $value["code"] == 1 ? "selected" : "";
 											?>
-											<option value="<?php echo $value["code"]; ?>"><?php echo $value["pointName"]; ?></option>
+											<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?>><?php echo $value["pointName"]; ?></option>
 											<?php
 										}
 										?>
@@ -355,8 +367,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($instance_receptionCatalog   as $key => $value) {
+											$isSelected = $value["code"] == 2 ? "selected" : "";
 											?>
-											<option value="<?php echo $value["code"]; ?>"><?php echo $value["instanceName"]; ?></option>
+											<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?>><?php echo $value["instanceName"]; ?></option>
 											<?php
 										}
 										?>
@@ -371,8 +384,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($admisionCatalog    as $key => $value) {
+											$isSelected = $value["code"] == 9 ? "selected" : "";
 											?>
-											<option value="<?php echo $value["code"]; ?>"><?php echo $value["admisionName"]; ?></option>
+											<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?>><?php echo $value["admisionName"]; ?></option>
 											<?php
 										}
 										?>
@@ -384,8 +398,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($favorabilityCatalog   as $key => $value) {
+											$isSelected = $value["code"] == 3 ? "selected" : "";
 											?>
-											<option value="<?php echo $value["code"]; ?>"><?php echo $value["favorabilityName"]; ?></option>
+											<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?>><?php echo $value["favorabilityName"]; ?></option>
 											<?php
 										}
 										?>
@@ -400,8 +415,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($aceptacionCatalog     as $key => $value) {
+											$isSelected = $value["code"] == 1 ? "selected" : "";
 											?>
-											<option value="<?php echo $value["code"]; ?>"><?php echo $value["aceptacionName"]; ?></option>
+											<option value="<?php echo $value["code"]; ?>"<?php echo $isSelected;?>><?php echo $value["aceptacionName"]; ?></option>
 											<?php
 										}
 										?>
@@ -414,8 +430,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($rectificationCatalog     as $key => $value) {
+											$isSelected = $value["code"] == 1 ? "selected" : "";
 											?>
-											<option value="<?php echo $value["code"]; ?>"><?php echo $value["rectificationName"]; ?></option>
+											<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?>><?php echo $value["rectificationName"]; ?></option>
 											<?php
 										}
 										?>
@@ -452,8 +469,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($tutelaCatalog    as $key => $value) {
+											$isSelected = $value["code"] == 2 ? "selected" : "";
 											?>
-											<option value="<?php echo $value["code"]; ?>"><?php echo $value["tutelaName"]; ?></option>
+											<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected ?> ><?php echo $value["tutelaName"]; ?></option>
 											<?php
 										}
 										?>
@@ -486,8 +504,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($desestimientoCatalog     as $key => $value) {
+											$isSelected = $value["code"] == 2 ? "selected" : "";
 											?>
-											<option value="<?php echo $value["code"]; ?>"><?php echo $value["desestimientoName"]; ?></option>
+											<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected;?>><?php echo $value["desestimientoName"]; ?></option>
 											<?php
 										}
 										?>
@@ -517,8 +536,9 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 						<option value="">Seleccione: </option>
 						<?php
 						foreach ($pqrs_statesCatalog      as $key => $value) {
+							$isSelected = $value["code"] == 2 ? "selected" : "";
 							?>
-							<option value="<?php echo $value["code"]; ?>"><?php echo $value["stateName"]; ?></option>
+							<option value="<?php echo $value["code"]; ?>" <?php echo $isSelected ?> ><?php echo $value["stateName"]; ?></option>
 							<?php
 						}
 						?>
