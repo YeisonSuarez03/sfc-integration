@@ -251,19 +251,39 @@ function CrearMenuSFCINTEGRATION()
  
    
    );
+   
+     add_submenu_page(
+    plugin_dir_path(__FILE__) . 'admin/descargadasSFC.php', //Slug
+   'DashboardSFC',
+   'Dashboard SFC',
+   'manage_options',
+    plugin_dir_path(__FILE__) . 'admin/Dashboard.php', //Slug
+ 
+   
+   );
+   
 }
 //encolar bootstrap
 
 function EncolarBootstrapJSSFC($hook){
-    if($hook != "sfc-integration/admin/descargadasSFC.php" and $hook != "sfc-integration/admin/Remitidas.php"){
+    if($hook != "sfc-integration/admin/descargadasSFC.php" and $hook != "sfc-integration/admin/Remitidas.php" and $hook != "sfc-integration/admin/Dashboard.php"){
         return ;
     }
     wp_enqueue_script('bootstrapJs',plugins_url('admin/bootstrap/js/bootstrap.min.js',__FILE__),array('jquery'));
 }
 add_action('admin_enqueue_scripts','EncolarBootstrapJSSFC');
 
+function EncolarChartjsJSSFC($hook){
+  if($hook != "sfc-integration/admin/Dashboard.php"){
+      return;
+  }
+  wp_enqueue_script('Chartjs',plugins_url('admin/chartjs/chart.js',__FILE__));
+}
+add_action('admin_enqueue_scripts','EncolarChartjsJSSFC');
+
+
 function EncolarBootstrapCSSSFC($hook){
-    if($hook != "sfc-integration/admin/descargadasSFC.php" and $hook != "sfc-integration/admin/Remitidas.php"){
+    if($hook != "sfc-integration/admin/descargadasSFC.php" and $hook != "sfc-integration/admin/Remitidas.php" and $hook != "sfc-integration/admin/Dashboard.php"){
         return ;
     }
     wp_enqueue_style('bootstrapCSS',plugins_url('admin/bootstrap/css/bootstrap.min.css',__FILE__));
@@ -274,6 +294,7 @@ function EncolarCSSSFC($hook){
     wp_enqueue_style('CSSSFC',plugins_url('admin/css/custom.css',__FILE__));
 }
 add_action('admin_enqueue_scripts','EncolarCSSSFC');
+
 
 
 register_activation_hook(__FILE__, 'ActivateSFCIsolutionIntegration');
