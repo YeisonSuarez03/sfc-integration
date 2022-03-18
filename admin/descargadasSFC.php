@@ -566,8 +566,10 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <label>Observación</label>
-		<div style="border: 1px solid black; height: 200px;"></div>
+        <label class="mb-2">Observación</label>
+		
+		<textarea name="Observacion" id="inputObservacion" class="form-control" rows="3" required="required"></textarea>
+		
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
