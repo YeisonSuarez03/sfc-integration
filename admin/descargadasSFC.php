@@ -79,6 +79,14 @@ if (isset($_POST["correo"])) {
 
 }
 
+// $campo = $_POST["campo"];
+/*$wpdb->insert($nameTable, array(
+ "process_code" => $process_code
+
+))
+
+*/
+
 
 ?>
 

@@ -29,6 +29,7 @@
  require plugin_dir_path(__FILE__) . "catalogs/desestimiento.php";
  require plugin_dir_path(__FILE__) . "catalogs/rectificacion.php";
  require plugin_dir_path(__FILE__) . "catalogs/marcacion.php";
+ require plugin_dir_path(__FILE__) . "catalogs/enteControl.php";
  //CATALOGOS DE PROCESO/CENTRO
  require plugin_dir_path(__FILE__) . "catalogs/procesos.php";
  require plugin_dir_path(__FILE__) . "catalogs/centros.php";
@@ -99,6 +100,7 @@ function ActivateSFCIsolutionIntegration(){
     insertCentros();
     insertProcesos();
     insertCenterResponsibles();
+    insertEnteControl();
 
 }
 

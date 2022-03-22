@@ -31,11 +31,14 @@ function getCatalogTables(){
     $responsiblesTableName = "{$wpdb->prefix}sfcwp_responsibles";
     $procesoCentersTableName = "{$wpdb->prefix}sfcwp_procesos_centers";
     $centerResponsiblesTableName = "{$wpdb->prefix}sfcwp_centers_responsibles";
+    $enteControlTableName = "{$wpdb->prefix}sfcwp_entecontrol";
 
     //pqrs table
     $pqrsTable = "{$wpdb->prefix}sfcwp_pqrs";
-    //pqrs table
+    //pqrs anexos table
     $pqrsAnexosTable = "{$wpdb->prefix}sfcwp_pqrs_anexos";
+    //pqrs observations table
+    $pqrsObservationsTable = "{$wpdb->prefix}sfcwp_pqrs_observations";
 
     return array(
         "countries" => array(
@@ -279,7 +282,20 @@ function getCatalogTables(){
           state INT NOT NULL,
           CONSTRAINT sfcwp_pqrs_anexos_PK PRIMARY KEY (id)"
         ),
+        "observations" => array(
+          "name" => $pqrsObservationsTable,
+          "fields" => "id INT NOT NULL AUTO_INCREMENT,
+          pqrs_sfc_code INT NOT NULL,
+          isolution_code VARCHAR(20) NOT NULL,
+          observationText VARCHAR(500) NOT NULL,
+          CONSTRAINT sfcwp_pqrs_anexos_PK PRIMARY KEY (id)"
+        ),
+        "ente_control" => array(
+          "name" => $enteControlTableName,
+          "fields" => "id INT NOT NULL AUTO_INCREMENT,
+          code INT NOT NULL,
+          enteName VARCHAR(20) NOT NULL,
+          CONSTRAINT sfcwp_pqrs_anexos_PK PRIMARY KEY (id)"
+        ),
         );
 }
-
-(06,12,12345678,5,2,06121,"2022-22-3 10:39:55","01",170,10,11,"Yeison Suarez",1,"1140423510","1","1","0",2,3,null,"Cafe",2,"sabe feo",0,2,3,2,2,"replica",2,3,3,1,"Registrado")
