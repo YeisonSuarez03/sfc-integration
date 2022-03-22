@@ -105,12 +105,12 @@ function ActivateSFCIsolutionIntegration(){
 
 function DesactivateSFCIsolutionIntegration(){
 
-    //nothing yet
     /* global $wpdb;
-    $countriesTableName = "{$wpdb->prefix}sfcwp_departments";
-
-    $dropTableCountries = "DROP TABLE {$countriesTableName}";
-    $wpdb->query($dropTableCountries); */
+    //nothing yet
+    $tables = getCatalogTables();
+    $pqrsTableName = $tables["pqrs"]["name"];
+    $dropTableQuery = "DROP TABLE {$pqrsTableName}";
+    $wpdb->query($dropTableQuery); */
 
 }
 

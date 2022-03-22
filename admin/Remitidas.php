@@ -1,4 +1,19 @@
+<?php 
 
+if (isset($_POST["correo"])) {
+	global $wpdb;
+	$pqrsTableName = "{$wpdb->prefix}sfcwp_pqrs";
+	$query = "";
+	$queryResults = $wpdb->get_results($query, ARRAY_A);
+
+	$mensaje = "<div>Senores {$queryResults[0]['name']}</div>";
+	
+
+	$headers = array( 'Content-Type: text/html; charset=UTF-8' );
+	wp_mail( $destinatario, $asunto, $mensaje, $headers );
+}
+
+?>
 <style>
 .semaforo{
   height:50px;
@@ -20,6 +35,9 @@ td{
 }	
 
 </style>
+<form method="POST">
+	<button class="btn btn-primary" type="submit" name="correo" id="correo">Enviar</button>
+</form>
 <div class="wrap" >
 <div class="d-flex justify-content-between mb-3 mt-3">
 <div>

@@ -36,6 +36,7 @@ $catalogTables = array(
     "rectification" => "{$wpdb->prefix}sfcwp_rectification",
     "marcacion" => "{$wpdb->prefix}sfcwp_marcacion",
     "procesos" => "{$wpdb->prefix}sfcwp_procesos",
+    "pqrs" => "{$wpdb->prefix}sfcwp_pqrs",
 );
 
 $countriesCatalog 			= getCatalog($catalogTables["countries"]);
@@ -62,9 +63,32 @@ $rectificationCatalog 		= getCatalog($catalogTables["rectification"]);
 $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 
 
+if (isset($_POST["correo"])) {
+
+	global $wpdb;
+	$pqrsTableName = $catalogTables["pqrs"];
+	$query = "";
+	$queryResults = $wpdb->get_results($query, ARRAY_A);
+
+	$mensaje = "<div>Senores {$queryResults[0]['name']}</div>";
+	
+
+	$headers = array( 'Content-Type: text/html; charset=UTF-8' );
+	wp_mail( $destinatario, $asunto, $mensaje, $headers );
+
+
+}
+
+
 ?>
 
 <div class="container bg-gray w-100">
+
+<form method="POST">
+	<button class="btn btn-primary" type="submit" name="correo" id="correo">Enviar</button>
+</form>
+
+
 <form>
 
 	<div class="row w-100">
