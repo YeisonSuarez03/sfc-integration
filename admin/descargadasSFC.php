@@ -65,7 +65,7 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 
 if (isset($_POST["correo"])) {
 
-	global $wpdb;
+	/*global $wpdb;
 	$pqrsTableName = $catalogTables["pqrs"];
 	$query = "";
 	$queryResults = $wpdb->get_results($query, ARRAY_A);
@@ -75,14 +75,13 @@ if (isset($_POST["correo"])) {
 
 	$headers = array( 'Content-Type: text/html; charset=UTF-8' );
 	wp_mail( $destinatario, $asunto, $mensaje, $headers );
-
-
-}
-
-
-if (isset($_POST["correo"])) {
+*/
 
 }
+
+
+
+if (isset($_POST["GuardarM"])) {
 
 // $campo = $_POST["campo"];
 /*$wpdb->insert($nameTable, array(
@@ -91,6 +90,86 @@ if (isset($_POST["correo"])) {
 ))
 
 */
+
+$tipo_entidad = $_POST["tipo_entidad"];
+$entidad_cod = $_POST["entidad_cod"]; 
+$isolution_code = $_POST["isolution_code"];
+$process_code = $_POST["process_code"];
+$center_code = $_POST["center_code"];
+$fecha_creacion = $_POST["fecha_creacion"];
+$codigo_pais = $_POST["codigo_pais"];
+$departamento_cod = $_POST["departamento_cod"];
+$municipio_cod = $_POST["municipio_cod"];
+$nombres = $_POST["nombres"];
+$tipo_id_CF = $_POST["tipo_id_CF"];
+$numero_id_CF = $_POST["numero_id_CF"];
+$tipo_persona = $_POST["tipo_persona"];
+$sexo = $_POST["sexo"];
+$lgbtiq = $_POST["lgbtiq"];
+$canal_cod = $_POST["canal_cod"]; 
+$condicion_especial = $_POST["condicion_especial"];
+$macro_motivo_cod = $_POST["macro_motivo_cod"];
+$texto_queja = $_POST["texto_queja"];
+$anexo_queja = $_POST["anexo_queja"];
+$tutela = $_POST["tutela"];
+$escalamiento_DCF = $_POST["escalamiento_DCF"];
+$replica = $_POST["replica"];
+$argumento_replica = $_POST["argumento_replica"];
+$desistimiento_queja = $_POST["desistimiento_queja"];
+$queja_expres = $_POST["queja_expres"];
+$status_queja_sfc = $_POST["status_queja_sfc"];
+$d_correo = $_POST["d_correo"];
+$d_correo = $_POST["d_telefono"];
+$d_correo = $_POST["d_direccion"];
+
+
+
+global $wpdb;
+
+$DescargadoTable = "{$wpdb->prefix}sfcwp_pqrs";
+
+$wpdb->insert($DescargadoTable, array(
+"tipo_entidad" => intval($tipo_entidad),
+"entidad_cod" => intval($entidad_cod),
+"isolution_code" => $isolution_code,
+"center_code" => intval($center_code),
+"process_code" => intval($process_code),
+"fecha_creacion" => $fecha_creacion,
+"codigo_queja" => null,
+"codigo_pais" => intval($codigo_pais),
+"departamento_cod" => intval($departamento_cod),
+"municipio_cod" => intval($municipio_cod),
+"nombres" => $nombres,
+"tipo_id_CF" => intval($tipo_id_CF),
+"numero_id_CF" => intval($numero_id_CF),
+"tipo_persona" =>  intval($tipo_persona),
+"sexo" => intval($sexo),
+"lgbtiq" => intval($lgbtiq),
+"canal_cod" => intval($canal_cod),
+"condicion_especial" => intval($condicion_especial),
+"producto_cod" => null,
+"producto_nombre" => null,
+"macro_motivo_cod" => intval($macro_motivo_cod),
+"texto_queja" => $texto_queja,
+"anexo_queja" => intval($anexo_queja),
+"tutela" => intval($tutela),
+"ente_control" => null,
+"escalamiento_DCF" => null,
+"d_direccion" => $d_direccion,
+"d_correo" => $d_correo,
+"d_telefono" => $d_telefono,
+"replica" => null,
+"argumento_replica" => $argumento_replica,
+"desistimiento_queja" => intval($desistimiento_queja),
+"queja_expres" => null,
+"status_queja_sfc" => intval($status_queja_sfc),
+"status_intern_code" => null,
+"status_intern_name" => null
+));
+
+
+
+}
 
 
 ?>
@@ -115,15 +194,15 @@ if (isset($_POST["correo"])) {
 
 						<div class="d-flex w-25 justify-content-center align-items-center" style="gap: 10px;">
 							<label class="label-min" for="date">Fecha</label>
-							<input class="inputMaxWidth" type="text" name="fecha_creacion" id="date" required>
+							<input class="inputMaxWidth" type="date" name="fecha_creacion" id="date" value="<?php echo date("Y-m-d");?>"  required>
 						</div>
 						<div class="d-flex w-25 justify-content-center align-items-center" style="gap: 10px;">
 							<label class="label-min" for="entityType">Tipo de Entidad</label>
-							<input class="inputMaxWidth" type="text" name="tipo_entidad" id="entityType" required>
+							<input class="inputMaxWidth" type="text" name="tipo_entidad" id="entityType" value="6" readonly="readonly" required>
 						</div>
 						<div class="d-flex w-25 justify-content-center align-items-center" style="gap: 10px;">
 							<label class="label-min" for="entityCode">Código de Entidad</label>
-							<input class="inputMaxWidth" type="text" name="entidad_cod" id="entityCode" required>
+							<input class="inputMaxWidth" type="text" name="entidad_cod" id="entityCode" value="12" readonly="readonly" required>
 						</div>
 						<div class="d-flex w-25 justify-content-center align-items-center" style="gap: 10px;">
 							<label class="label-min" for="isolutionCode">Código Isolution</label>
@@ -228,7 +307,7 @@ if (isset($_POST["correo"])) {
 
 						<div class="d-flex w-50 justify-content-center align-items-center" style="gap: 10px;">
 							<label class="label-min" for="customerName">Nombre o razón social del consumidor financiero</label>
-							<input type="text" name="customerName" id="customerName" required>
+							<input type="text" name="names" id="customerName" required>
 						</div>
 
 						<div class="d-flex w-25 justify-content-center align-items-center" style="gap: 10px;">
@@ -256,15 +335,15 @@ if (isset($_POST["correo"])) {
 
 						<div class="d-flex w-20 justify-content-center align-items-center" style="gap: 10px;">
 							<label class="label-min" for="address">Dirección</label>
-							<input class="inputMaxWidth" type="text" name="address" id="address"required/>
+							<input class="inputMaxWidth" type="text" name="d_direccion" id="address"required/>
 						</div>
 						<div class="d-flex w-20 justify-content-center align-items-center" style="gap: 10px;">
 							<label class="label-min" for="email">Correo Electrónico</label>
-							<input class="inputMaxWidth" type="email" name="email" id="email" required/>
+							<input class="inputMaxWidth" type="email" name="d_correo" id="email" required/>
 						</div>
 						<div class="d-flex w-20 justify-content-center align-items-center" style="gap: 10px;">
 							<label class="label-min" for="phoneNumber">Teléfono</label>
-							<input class="inputMaxWidth" type="text" name="phoneNumber" id="phoneNumber" required/>
+							<input class="inputMaxWidth" type="text" name="d_telefono" id="phoneNumber" required/>
 						</div>
 						<div class="d-flex w-20 justify-content-center align-items-center" style="gap: 10px;">
 							<label class="label-min" for="sex">Sexo</label>
@@ -316,7 +395,7 @@ if (isset($_POST["correo"])) {
 								</div>
 								<div class="d-flex w-50 justify-content-center align-items-center" style="gap: 10px;">
 									<label class="label-min" for="motivo">Motivo</label>
-									<select class="inputMaxWidth" class="inputMaxWidth" type="text" name="macro_motivo_cod " id="motivo" required>
+									<select class="inputMaxWidth" class="inputMaxWidth" type="text" name="macro_motivo_cod" id="motivo" required>
 										<option value="">Seleccione: </option>
 										<?php
 										foreach ($motivosCatalog   as $key => $value) {
@@ -490,7 +569,7 @@ if (isset($_POST["correo"])) {
 							</div>
 							<div class="d-flex mt-2 w-100 justify-content-center align-items-center" style="gap: 10px;">
 								<label class="label-min" for="anexos">Anexos</label>
-								<select class="inputMaxWidth" class="inputMaxWidth" name="anexo_queja" id="anexos" required>
+								<select class="inputMaxWidth" class="inputMaxWidth" name="anexo_queja" id="anexos" >
 									<option value="">Seleccione: </option>
 								</select>
 								<button class="btn btn-outline-primary ms-3" style=" max-width: 150px; width: 100%;"> Cargar</button>

@@ -241,7 +241,6 @@ function getCatalogTables(){
           isolution_code VARCHAR(20) NULL,
           process_code INT NULL,
           center_code INT NULL,
-          pqrs_sfc_code VARCHAR(20) NULL,
           fecha_creacion TIMESTAMP  NULL,
           codigo_queja VARCHAR(20)  NULL,
           codigo_pais INT  NULL,
@@ -263,6 +262,9 @@ function getCatalogTables(){
           tutela INT NULL,
           ente_control INT NULL,
           escalamiento_DCF INT NULL,
+          d_direccion VARCHAR(40) NULL,
+          d_correo VARCHAR(40) NULL,
+          d_telefono VARCHAR(30) NULL,
           replica INT NULL,
           argumento_replica VARCHAR(1000) NULL,
           desistimiento_queja INT NULL,
@@ -285,7 +287,6 @@ function getCatalogTables(){
         "observations" => array(
           "name" => $pqrsObservationsTable,
           "fields" => "id INT NOT NULL AUTO_INCREMENT,
-          pqrs_sfc_code INT NOT NULL,
           isolution_code VARCHAR(20) NOT NULL,
           observationText VARCHAR(500) NOT NULL,
           CONSTRAINT sfcwp_pqrs_anexos_PK PRIMARY KEY (id)"
