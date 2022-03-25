@@ -65,17 +65,30 @@ $marcacionCatalog 			= getCatalog($catalogTables["marcacion"]);
 
 if (isset($_POST["correo"])) {
 
-	/*global $wpdb;
+  global $wpdb;
 	$pqrsTableName = $catalogTables["pqrs"];
 	$query = "";
 	$queryResults = $wpdb->get_results($query, ARRAY_A);
-
-	$mensaje = "<div>Senores {$queryResults[0]['name']}</div>";
+	$destinatario = "opposebas1312@gmail.com";
+	$asunto = "Sapa hendionnda";
+	//$mensaje = "<div>Senores {$queryResults[0]['name']}</div>";
+	$mensaje = "
+	<p>Señores, <span style='color: red; font-weight: bolder;'>{$NombreCliente}</span></p>
+	<p>Reciban un cordial saludo.</p>
+	<p>Notificamos amablemente que hemos recibido la novedad relacionada con <span style='font-weight: bolder; color: red;'>xxxxx.</span><br></p>
+	<p>La información será validada por los responsables del proceso y tan pronto<br> tengamos todos los detalles de la evaluación nos comunicaremos nuevamente<br> para informar los resultados.
+	</p>
+	<p>Quedamos atentos a cualquier inquietud. </p>
+	<p><span style='font-weight: bolder;'>Servicio al Cliente</span><br>
+	Especialista De Mejoramiento<br>
+	Gestionar Mejoramiento<br>
+	</p>
+	";
 	
 
 	$headers = array( 'Content-Type: text/html; charset=UTF-8' );
 	wp_mail( $destinatario, $asunto, $mensaje, $headers );
-*/
+
 
 }
 
@@ -119,14 +132,16 @@ $desistimiento_queja = $_POST["desistimiento_queja"];
 $queja_expres = $_POST["queja_expres"];
 $status_queja_sfc = $_POST["status_queja_sfc"];
 $d_correo = $_POST["d_correo"];
-$d_correo = $_POST["d_telefono"];
-$d_correo = $_POST["d_direccion"];
+$d_telefono = $_POST["d_telefono"];
+$d_direccion = $_POST["d_direccion"];
 
 
 
 global $wpdb;
 
 $DescargadoTable = "{$wpdb->prefix}sfcwp_pqrs";
+$ObservationTable = "{$wpdb->prefix}sfcwp_pqrs_observations";
+
 
 $wpdb->insert($DescargadoTable, array(
 "tipo_entidad" => intval($tipo_entidad),
@@ -168,6 +183,14 @@ $wpdb->insert($DescargadoTable, array(
 ));
 
 
+$observationText = $_POST["observationText"];
+
+
+$wpdb->insert($ObservationTable, array(
+"isolution_code" => $isolution_code,
+"observationText" => $observationText
+));
+	
 
 }
 
@@ -205,8 +228,8 @@ $wpdb->insert($DescargadoTable, array(
 							<input class="inputMaxWidth" type="text" name="entidad_cod" id="entityCode" value="12" readonly="readonly" required>
 						</div>
 						<div class="d-flex w-25 justify-content-center align-items-center" style="gap: 10px;">
-							<label class="label-min" for="isolutionCode">Código Isolution</label>
-							<input class="inputMaxWidth" type="text" name="isolutionCode" id="isolutionCode" required>
+							<label class="label-min" for="isolution_code">Código Isolution</label>
+							<input class="inputMaxWidth" type="text" name="isolution_code" id="isolution_code" required>
 						</div>
 						<div class="d-flex w-25 my-2 justify-content-center align-items-center" style="gap: 10px;">
 							<label class="label-min" for="proceso">Proceso</label>
@@ -679,7 +702,7 @@ $wpdb->insert($DescargadoTable, array(
       <div class="modal-body">
         <label class="mb-2">Observación</label>
 		
-		<textarea name="Observacion" id="inputObservacion" class="form-control" rows="3" required="required"></textarea>
+		<textarea name="observationText" id="inputObservacion" class="form-control" rows="3" required="required"></textarea>
 		
       </div>
       <div class="modal-footer">
